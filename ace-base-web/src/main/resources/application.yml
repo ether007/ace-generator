@@ -1,0 +1,38 @@
+logging:
+  path: /Users/xcl/work/bogeche-pc/target/bogechepic
+
+spring:
+    resources:
+      staticLocations: classpath:/static/, classpath:/assets/
+    mvc:
+      dateFormat: yyyy-MM-dd
+    thymeleaf:
+      cache: false
+      prefix: classpath:/templates/
+    datasource:
+      url : jdbc:mysql://127.0.0.1:3306/base
+      username: root
+      password : toor
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select current_timestamp()
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+
+server:
+    port: 9000
+    sessionTimeout: 30
+    contextPath: /
+
+mybatis:
+    mapper-locations: classpath:/com/ace/base/mapper/*.xml
+
